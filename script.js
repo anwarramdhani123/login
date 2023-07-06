@@ -2,6 +2,8 @@
 var firebaseConfig = {
   apiKey: "AIzaSyCeoWEQjitYPAlZ0ggWlhOwAZsgzskIlHk",
   authDomain: "ar-login2-c934e.firebaseapp.com",
+    storageBucket: "ar-login2-c934e.appspot.com",
+    messagingSenderId: "340128442382",
   projectId: "ar-login2-c934e",
   appId: "1:340128442382:web:93901ccc0ee8249d24b45f"
 };
