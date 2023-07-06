@@ -1,0 +1,23 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+a {
+  display: inline-block;
+  margin: 0 5px;
+}
+img {
+  width: 30px;
+}
