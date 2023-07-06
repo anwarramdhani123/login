@@ -1,9 +1,9 @@
 // Inisialisasi Firebase
 var firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCeoWEQjitYPAlZ0ggWlhOwAZsgzskIlHk",
+  authDomain: "ar-login2-c934e.firebaseapp.com",
+  projectId: "ar-login2-c934e",
+  appId: "1:340128442382:web:93901ccc0ee8249d24b45f"
 };
 
 firebase.initializeApp(firebaseConfig);
