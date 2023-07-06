@@ -11,47 +11,30 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Fungsi Login dengan Google
+// Login with Google function
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
 
-  // Simpan URL halaman asal sebelum diarahkan ke halaman login
-  sessionStorage.setItem("redirectUrl", window.location.href);
-
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      // Redirect ke halaman asal setelah login berhasil
-      redirectToOriginalPage();
+      // Redirect to m.html after successful login
+      window.location.href = "/m.html";
     })
     .catch(function(error) {
-      console.log(error);
+      alert("Error: " + error.message);
     });
 }
 
-// Fungsi Login dengan Twitter
+// Login with Twitter function
 function loginWithTwitter() {
   var provider = new firebase.auth.TwitterAuthProvider();
 
-  // Simpan URL halaman asal sebelum diarahkan ke halaman login
-  sessionStorage.setItem("redirectUrl", window.location.href);
-
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      // Redirect ke halaman asal setelah login berhasil
-      redirectToOriginalPage();
+      // Redirect to m.html after successful login
+      window.location.href = "/m.html";
     })
     .catch(function(error) {
-      console.log(error);
+      alert("Error: " + error.message);
     });
-}
-
-// Fungsi untuk mengarahkan pengguna ke halaman asal setelah login atau register berhasil
-function redirectToOriginalPage() {
-  var redirectUrl = sessionStorage.getItem("redirectUrl");
-  if (redirectUrl) {
-    window.location.href = redirectUrl;
-  } else {
-    // Jika tidak ada URL halaman asal, arahkan ke halaman default
-    window.location.href = "m.html";
-  }
 }
