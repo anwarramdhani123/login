@@ -11,30 +11,30 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Login with Google function
+// Fungsi Login dengan Google
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      // Redirect to m.html after successful login
-      window.location.href = "/m.html";
+      // Redirect ke halaman terproteksi setelah login berhasil
+      window.location.href = "/sso2/m.html";
     })
-    .catch(function(error) {
-      alert("Error: " + error.message);
+   .catch(function(error) {
+      console.log(error);
     });
 }
 
-// Login with Twitter function
+// Fungsi Login dengan Twitter
 function loginWithTwitter() {
   var provider = new firebase.auth.TwitterAuthProvider();
 
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      // Redirect to m.html after successful login
-      window.location.href = "/m.html";
+      // Redirect ke halaman terproteksi setelah login berhasil
+      window.location.href = "/sso2/m.html";
     })
     .catch(function(error) {
-      alert("Error: " + error.message);
+      console.log(error);
     });
 }
