@@ -1,6 +1,6 @@
 // Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyDwLz4xTWaJ-3vVkAm4-14MZuNtxmTea7A",
+ apiKey: "AIzaSyDwLz4xTWaJ-3vVkAm4-14MZuNtxmTea7A",
     authDomain: "anwr-login.firebaseapp.com",
     projectId: "anwr-login",
     storageBucket: "anwr-login.appspot.com",
@@ -12,9 +12,21 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Cek status login setiap kali halaman dimuat
-firebase.auth().onAuthStateChanged(function(user) {
-  if (!user) {
-    // Jika pengguna belum login, redirect ke halaman login
-    window.location.href = "/login.html";
-  }
-});
+function checkAuth() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+      // Jika pengguna belum login, redirect ke halaman login
+      redirectToLogin();
+    }
+  });
+}
+
+// Simpan URL halaman asal saat mengarahkan pengguna ke halaman login
+function redirectToLogin() {
+  var currentUrl = window.location.href;
+  sessionStorage.setItem("redirectUrl", currentUrl);
+  window.location.href = "/sso/login22.html";
+}
+
+// Panggil fungsi checkAuth saat halaman dimuat
+checkAuth();
