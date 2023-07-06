@@ -35,7 +35,7 @@ function checkAuth() {
 function redirectToLogin() {
   var currentUrl = window.location.href;
   sessionStorage.setItem("redirectUrl", currentUrl);
-  window.location.href = "/login.html";
+  window.location.href = "/sso2/login.html";
 }
 
 // Logout function
