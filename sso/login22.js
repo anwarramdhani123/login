@@ -1,7 +1,7 @@
 // Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyDwLz4xTWaJ-3vVkAm4-14MZuNtxmTea7A",
-    authDomain: "anwr-login.firebaseapp.com",
+    authDomain: "auth.anwr.my.id",
     projectId: "anwr-login",
     storageBucket: "anwr-login.appspot.com",
     messagingSenderId: "686366789818",
