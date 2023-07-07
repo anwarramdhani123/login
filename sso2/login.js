@@ -38,3 +38,17 @@ function loginWithTwitter() {
       console.log(error);
     });
 }
+
+// Fungsi Login dengan Github
+function loginWithGithub() {
+  var provider = new firebase.auth.GithubAuthProvider();
+
+  firebase.auth().signInWithPopup(provider)
+    .then(function(result) {
+      // Redirect ke halaman terproteksi setelah login berhasil
+      window.location.href = "/sso2/m.html";
+    })
+   .catch(function(error) {
+      console.log(error);
+    });
+}
