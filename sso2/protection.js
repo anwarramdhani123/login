@@ -35,7 +35,7 @@ function checkAuth() {
 function redirectToLogin() {
   var currentUrl = window.location.href;
   sessionStorage.setItem("redirectUrl", currentUrl);
-  window.location.href = "/sso2/login.html";
+  window.location.href = "https://sso.anwr.my.id/sso/oauth/auth/login/";
 }
 
 // Logout function
