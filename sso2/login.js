@@ -18,7 +18,7 @@ function loginWithGoogle() {
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
       // Redirect ke halaman terproteksi setelah login berhasil
-      window.location.href = "/sso2/m.html";
+      window.location.href = "https://www.anwr.my.id/p/member-area.html";
     })
    .catch(function(error) {
       console.log(error);
@@ -32,7 +32,7 @@ function loginWithTwitter() {
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
       // Redirect ke halaman terproteksi setelah login berhasil
-      window.location.href = "/sso2/m.html";
+      window.location.href = "https://www.anwr.my.id/p/member-area.html";
     })
     .catch(function(error) {
       console.log(error);
@@ -46,7 +46,7 @@ function loginWithGithub() {
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
       // Redirect ke halaman terproteksi setelah login berhasil
-      window.location.href = "/sso2/m.html";
+      window.location.href = "https://www.anwr.my.id/p/member-area.html";
     })
    .catch(function(error) {
       console.log(error);
