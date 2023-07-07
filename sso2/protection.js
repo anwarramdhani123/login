@@ -35,7 +35,7 @@ function checkAuth() {
 function redirectToLogin() {
   var currentUrl = window.location.href;
   sessionStorage.setItem("redirectUrl", currentUrl);
-  window.location.href = "/sso3";
+  window.location.href = "//sso.anwr.my.id/sso3";
 }
 
 // Logout function
