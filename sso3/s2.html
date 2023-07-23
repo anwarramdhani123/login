@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Sign in Form with Social Login Buttons</title>
+<title>Hi</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -94,9 +94,9 @@
       
       <div class="or-seperator"><i>Pilih Salah Satu</i></div>
         <div class="text-center social-btn">
-            <a onclick="loginWithGithub()" class="btn btn-black btn-block"><i class="fa fa-github"></i> Sign in with <b>Github</b></a>
-            <a onclick="loginWithTwitter()" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
-			<a onclick="loginWithGoogle()" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+            <a onclick="signInG1()" class="btn btn-black btn-block"><i class="fa fa-github"></i> Sign in with <b>Github</b></a>
+            <a onclick="signInG2()" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+			<a onclick="signIn()" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
         </div>
    </form>
 		<div class="or-seperator"><i>or</i></div>
@@ -107,87 +107,84 @@
 <script src='https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js'></script>
 <script>
   // Inisialisasi Firebase SDK
-var firebaseConfig = {
-apiKey: "AIzaSyDwLz4xTWaJ-3vVkAm4-14MZuNtxmTea7A",
+  var firebaseConfig = {
+  apiKey: "AIzaSyDwLz4xTWaJ-3vVkAm4-14MZuNtxmTea7A",
     authDomain: "anwr-login.firebaseapp.com",
     projectId: "anwr-login",
     storageBucket: "anwr-login.appspot.com",
     messagingSenderId: "686366789818",
     appId: "1:686366789818:web:8e4322533cf1c18b687283"
-};
+  };
 
-// Inisialisasi Firebase
-firebase.initializeApp(firebaseConfig);
+  // Inisialisasi Firebase
+  firebase.initializeApp(firebaseConfig);
 
-// Fungsi untuk login
-function signIn() {
-  var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
-    .then(function(result) {
-      var user = result.user;
-      console.log("Berhasil masuk:", user);
-      // Redirect ke halaman yang sesuai setelah login
-      if (redirectUrl) {
-        window.location.href = redirectUrl;
-      } else {
-        // Jika tidak ada URL redirect, arahkan ke halaman default setelah login
-        window.location.href = '/p/info.html';
-      }
-    })
-    .catch(function(error) {
-      console.log("Error saat masuk:", error);
-    });
-}
+  // Mendapatkan URL redirect dari parameter 'redirect'
+  var urlParams = new URLSearchParams(window.location.search);
+  var redirectUrl = urlParams.get('redirect');
 
-// Fungsi untuk logout
-function signOut() {
-  firebase.auth().signOut()
-    .then(function() {
-      console.log("Berhasil logout");
-      // Redirect ke halaman logout
-      window.location.href = '/logout.html';
-    })
-    .catch(function(error) {
-      console.log("Error saat logout:", error);
-    });
-}
-};
+  // Fungsi untuk login
+  function signIn() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(function(result) {
+        var user = result.user;
+        console.log("Berhasil masuk:", user);
 
-// Inisialisasi Firebase
-firebase.initializeApp(firebaseConfig);
+        // Redirect ke halaman yang sesuai setelah login
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        } else {
+          // Jika tidak ada URL redirect, arahkan ke halaman default setelah login
+          window.location.href = '/';
+        }
+      })
+      .catch(function(error) {
+        console.log("Error saat masuk:", error);
+      });
+  }
+  
+  // Fungsi untuk login
+  function signInG2() {
+    var provider = new firebase.auth.TwitterAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(function(result) {
+        var user = result.user;
+        console.log("Berhasil masuk:", user);
 
-// Fungsi untuk login
-function signIn() {
-  var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
-    .then(function(result) {
-      var user = result.user;
-      console.log("Berhasil masuk:", user);
-      // Redirect ke halaman yang sesuai setelah login
-      if (redirectUrl) {
-        window.location.href = redirectUrl;
-      } else {
-        // Jika tidak ada URL redirect, arahkan ke halaman default setelah login
-        window.location.href = '/p/info.html';
-      }
-    })
-    .catch(function(error) {
-      console.log("Error saat masuk:", error);
-    });
-}
+        // Redirect ke halaman yang sesuai setelah login
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        } else {
+          // Jika tidak ada URL redirect, arahkan ke halaman default setelah login
+          window.location.href = '/';
+        }
+      })
+      .catch(function(error) {
+        console.log("Error saat masuk:", error);
+      });
+  }
+  
+  // Fungsi untuk login
+  function signInG1() {
+    var provider = new firebase.auth.GithubAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(function(result) {
+        var user = result.user;
+        console.log("Berhasil masuk:", user);
 
-// Fungsi untuk logout
-function signOut() {
-  firebase.auth().signOut()
-    .then(function() {
-      console.log("Berhasil logout");
-      // Redirect ke halaman logout
-      window.location.href = '/logout.html';
-    })
-    .catch(function(error) {
-      console.log("Error saat logout:", error);
-    });
-}
-  </script>
+        // Redirect ke halaman yang sesuai setelah login
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        } else {
+          // Jika tidak ada URL redirect, arahkan ke halaman default setelah login
+          window.location.href = '/';
+        }
+      })
+      .catch(function(error) {
+        console.log("Error saat masuk:", error);
+      });
+  }
+</script>
 </body>
 </html>
